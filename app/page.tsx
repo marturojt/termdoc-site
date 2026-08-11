@@ -3,15 +3,20 @@ import { demoAnsi, rungBox, rungAscii, rungTsv } from './demo'
 const GITHUB = 'https://github.com/marturojt/termdoc'
 const CRATES = 'https://crates.io/crates/termdoc'
 
+const RELEASES = 'https://github.com/marturojt/termdoc/releases/latest'
+
 const installHtml = `<span class="comment"># from crates.io</span>
 <span class="prompt">$</span> cargo install <a href="${CRATES}" class="code-link">termdoc</a>
+
+<span class="comment"># or a prebuilt binary — macOS · Linux · Windows</span>
+<span class="prompt">$</span> <a href="${RELEASES}" class="code-link">github.com/marturojt/termdoc/releases/latest</a>
 
 <span class="comment"># then point it at anything</span>
 <span class="prompt">$</span> termdoc README.md
 <span class="prompt">$</span> termdoc --explain odd.dat
 <span class="prompt">$</span> cat README.md | termdoc
 
-<span class="comment"># Homebrew, AUR, Scoop, static binaries — planned</span>`
+<span class="comment"># Homebrew, AUR, Scoop — planned</span>`
 
 function Bar({ filled }: { filled: number }) {
   const total = 10
@@ -146,9 +151,11 @@ export default function Home() {
           <pre dangerouslySetInnerHTML={{ __html: installHtml }} />
         </div>
         <p className="install-note">
-          Requires a Rust toolchain (<a href="https://rustup.rs">rustup.rs</a>). Prebuilt
-          binaries and a Homebrew tap are on the backlog. Runs on Linux, macOS and Windows —
-          all three are covered by CI.
+          Prebuilt binaries for macOS (universal), Linux (x86_64 and aarch64) and Windows are
+          attached to every release, with <code>SHA256SUMS.txt</code> covering each archive —
+          and CI unpacks and runs every one of them before the release is drafted. Building
+          from source needs a Rust toolchain (<a href="https://rustup.rs">rustup.rs</a>). A
+          Homebrew formula is still on the backlog.
         </p>
       </section>
 
