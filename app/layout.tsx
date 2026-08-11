@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'termdoc — a universal document viewer for the terminal',
+  title: 'termdoc — view documents without leaving the terminal',
+  // Not "reads any document": this string is what search results and link previews
+  // show, which is the worst place for a claim the tool cannot yet honour.
   description:
-    'Reads any document and renders it as well as the terminal allows. Streaming, Unicode-aware, graceful degradation. Linux · macOS · Windows. MIT OR Apache-2.0.',
+    'A fast, terminal-native document viewer written in Rust. Markdown, plain text and logs render today; more formats land milestone by milestone. Streaming, Unicode-aware, correct in pipes. Linux · macOS · Windows.',
   // Vercel serves www as canonical and 308s the apex to it, so this must be www:
   // declaring the apex would point every OpenGraph URL at a redirect.
   metadataBase: new URL('https://www.termdoc.app'),

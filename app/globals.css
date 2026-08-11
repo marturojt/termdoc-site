@@ -80,8 +80,15 @@ code {
 /* --dim is for things that must recede: separators, prompts. This line is the
  * project's sharpest claim, so it gets readable contrast and recedes by size. */
 .hero-sub {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.hero-sub strong { color: var(--fg); font-weight: 600; }
+
+.hero-note {
+  font-size: 0.85rem;
+  color: var(--dim);
   margin-bottom: 2rem;
 }
 
@@ -139,10 +146,13 @@ section {
   padding: 1.25rem 1.5rem;
   overflow-x: auto;
 }
+/* The leading is tight on purpose: box-drawing glyphs only touch between lines at
+ * roughly 1.25, and at 1.55 a table frame renders as a row of disconnected dashes
+ * on any machine that falls back to a font with short verticals. */
 .term pre {
   font-family: var(--font);
   font-size: 0.8125rem;
-  line-height: 1.55;
+  line-height: 1.25;
   color: var(--term-fg);
   white-space: pre;
 }
@@ -185,7 +195,38 @@ section {
 .rungs .term { padding: 0.9rem 1rem; }
 /* The ladder only works if the glyphs are legible. A table is narrow enough to
  * stay near the body size even in a third of the column. */
-.rungs .term pre { font-size: 0.78rem; line-height: 1.5; }
+.rungs .term pre { font-size: 0.78rem; line-height: 1.25; }
+
+/* ── Formats table ────────────────────────────────── */
+.formats {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.formats th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  padding: 0 0.75rem 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.formats th:not(:first-child) { text-align: center; width: 6rem; }
+.formats td {
+  padding: 0.45rem 0.75rem 0.45rem 0;
+  color: var(--muted);
+  border-bottom: 1px solid var(--code-bg);
+}
+.formats td:not(:first-child) { text-align: center; }
+.formats tbody tr:hover td { color: var(--fg); }
+/* Monochrome marks, not emoji: a full-colour ✅ drags a second palette onto a page
+ * whose whole identity is one phosphor. ✕ borrows the error red already in use by
+ * the "what termdoc is not" list, because it means the same thing there. */
+.yes { color: var(--fg); }
+.wip { color: var(--muted); }
+.no  { color: var(--error); }
 
 /* ── Features ─────────────────────────────────────── */
 .features {

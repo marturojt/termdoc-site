@@ -3,8 +3,8 @@
 
 export const demoAnsi = `<span class="b ansi-bright-blue">Release notes</span>
 
-A <span class="b">universal</span> document viewer for the <span class="i">terminal</span>, with <span class="ansi-bright-yellow">inline code</span>
-and a <span class="u ansi-bright-blue">link</span><span class="dim ansi-blue">[1]</span>.
+A <span class="b">fast</span>, terminal-native document viewer, with <span class="ansi-bright-yellow">inline code</span> and
+a <span class="u ansi-bright-blue">link</span><span class="dim ansi-blue">[1]</span>.
 
 <span class="b ansi-bright-cyan">Formats</span>
 

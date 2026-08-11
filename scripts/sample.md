@@ -1,6 +1,6 @@
 # Release notes
 
-A **universal** document viewer for the *terminal*, with `inline code`
+A **fast**, terminal-native document viewer, with `inline code`
 and a [link](https://termdoc.app).
 
 ## Formats
