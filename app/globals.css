@@ -1,0 +1,314 @@
+/* termdoc.app
+ *
+ * Sibling to dapctl.com, not a copy of it: same structure, same monospace
+ * discipline, same hierarchy-by-colour-intensity. The identity is the phosphor.
+ * dapctl is a green CRT; termdoc is an amber one — the other colour those
+ * screens actually came in.
+ */
+
+:root {
+  --bg:      #0a0a0a;
+  --fg:      #ffc76a;   /* amber phosphor */
+  --muted:   #a87f42;   /* body text and secondary detail */
+  --dim:     #5c4526;   /* separators, prompts, things that must recede */
+  --accent:  #7fd4ff;   /* cool against the amber: inline code, emphasis */
+  --error:   #ff6b6b;
+  --border:  #2b2114;
+  --code-bg: #100c06;
+  --font: ui-monospace, "SF Mono", "Cascadia Code", "IBM Plex Mono", Menlo, monospace;
+
+  /* The demo blocks are a window into a terminal, so they keep terminal
+   * colours rather than being recoloured to match the page. Recolouring them
+   * would misrepresent what the tool emits. */
+  --term-bg: #0d0f17;
+  --term-fg: #c0caf5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body { padding: 2rem 1.5rem 3rem; }
+
+.page { max-width: 760px; margin: 0 auto; }
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--dim);
+}
+a:hover { border-bottom-color: var(--fg); }
+
+code {
+  font-family: var(--font);
+  color: var(--accent);
+  font-size: 0.9em;
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+.hero {
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.hero-title::before {
+  content: "¶ ";
+  color: var(--dim);
+  font-size: 0.6em;
+  vertical-align: middle;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.hero-sub {
+  font-size: 0.9rem;
+  color: var(--dim);
+  margin-bottom: 2rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  list-style: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-size: 0.875rem;
+  font-family: var(--font);
+  border-bottom-color: var(--border);
+}
+.btn:hover { border-color: var(--fg); }
+
+.status-chip {
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+/* ── Sections ─────────────────────────────────────── */
+section {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.section-note {
+  font-size: 0.8rem;
+  color: var(--dim);
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+/* ── Terminal blocks ──────────────────────────────── */
+.term {
+  background: var(--term-bg);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+}
+.term pre {
+  font-family: var(--font);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--term-fg);
+  white-space: pre;
+}
+
+/* Real terminal colours, so the demo does not lie about the output. */
+.ansi-black          { color: #414868; }
+.ansi-red            { color: #f7768e; }
+.ansi-green          { color: #9ece6a; }
+.ansi-yellow         { color: #e0af68; }
+.ansi-blue           { color: #565f89; }
+.ansi-magenta        { color: #bb9af7; }
+.ansi-cyan           { color: #7dcfff; }
+.ansi-white          { color: #a9b1d6; }
+.ansi-bright-black   { color: #6b7394; }
+.ansi-bright-red     { color: #ff7a93; }
+.ansi-bright-green   { color: #b9f27c; }
+.ansi-bright-yellow  { color: #e0af68; }
+.ansi-bright-blue    { color: #7aa2f7; }
+.ansi-bright-magenta { color: #c8a6fa; }
+.ansi-bright-cyan    { color: #7dcfff; }
+.ansi-bright-white   { color: #c0caf5; }
+.b   { font-weight: 700; }
+.i   { font-style: italic; }
+.u   { text-decoration: underline; text-underline-offset: 2px; }
+.dim { opacity: 0.6; }
+
+/* ── Degradation ladder ───────────────────────────── */
+.rungs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.rung-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  margin-bottom: 0.5rem;
+}
+.rungs .term { padding: 0.9rem 1rem; }
+.rungs .term pre { font-size: 0.6rem; line-height: 1.5; }
+
+/* ── Features ─────────────────────────────────────── */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.features li {
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--muted);
+}
+.features li::before {
+  content: "¶";
+  position: absolute;
+  left: 0;
+  color: var(--dim);
+  font-size: 0.85em;
+}
+.features strong { color: var(--fg); font-weight: 600; }
+
+/* ── Install ──────────────────────────────────────── */
+.install-block {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+}
+.install-block pre {
+  font-family: var(--font);
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--fg);
+  white-space: pre;
+}
+.comment   { color: var(--muted); }
+.prompt    { color: var(--dim); user-select: none; }
+.code-link { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+
+.install-note { font-size: 0.8rem; color: var(--muted); }
+
+/* ── Not list ─────────────────────────────────────── */
+.not-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.not-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--muted);
+}
+.not-list li::before {
+  content: "✕";
+  position: absolute;
+  left: 0;
+  color: var(--error);
+  font-size: 0.75em;
+  top: 0.15em;
+}
+
+/* ── Status / milestones ──────────────────────────── */
+.milestones {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.25rem;
+}
+.milestones li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.ms-id   { color: var(--fg); font-weight: 600; min-width: 2rem; }
+.ms-bar  { color: var(--dim); letter-spacing: -0.05em; }
+.ms-bar .on { color: var(--fg); }
+.ms-desc { color: var(--muted); font-size: 0.9rem; }
+
+.status-text { color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin: 1.25rem 0;
+}
+.metric-value { color: var(--fg); font-size: 1.35rem; font-weight: 700; display: block; }
+.metric-label { color: var(--dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.backlog-link { color: var(--fg); font-size: 0.9rem; }
+
+/* ── Footer ───────────────────────────────────────── */
+footer {
+  padding: 2rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-bottom-color: transparent;
+}
+.footer-links a:hover { color: var(--fg); }
+.footer-build { font-size: 0.8rem; color: var(--dim); }
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 720px) {
+  .rungs { grid-template-columns: 1fr; }
+  .rungs .term pre { font-size: 0.7rem; }
+}
+
+@media (max-width: 480px) {
+  body { padding: 1.5rem 1rem 2.5rem; }
+  .hero { padding: 2.5rem 0 2rem; }
+  .hero-title { font-size: 2.25rem; }
+  .install-block, .term { padding: 1rem; }
+  section { padding: 2rem 0; }
+  .term pre { font-size: 0.7rem; }
+}
