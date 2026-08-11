@@ -21,6 +21,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SAMPLE = ROOT / "scripts" / "sample.md"
+# The ladder uses a table on its own. On a whole document the difference between
+# box-drawing and ASCII is a few glyphs lost in a wall of prose; on a table it is
+# the entire frame, and the bottom rung — giving up the frame for tab-separated
+# values rather than truncating a cell — is only visible here.
+TABLE = ROOT / "scripts" / "table.md"
 OUT = ROOT / "app" / "demo.ts"
 TERMDOC = os.environ.get("TERMDOC", "termdoc")
 
@@ -41,11 +46,11 @@ ATTRS = {"1": "b", "2": "dim", "3": "i", "4": "u"}
 SGR = re.compile(r"\x1b\[([0-9;]*)m")
 
 
-def render(args):
+def render(args, doc=SAMPLE):
     """Runs termdoc and returns its stdout, or exits with a useful message."""
     try:
         proc = subprocess.run(
-            [TERMDOC, *args, str(SAMPLE)],
+            [TERMDOC, *args, str(doc)],
             capture_output=True, text=True, check=True,
         )
     except FileNotFoundError:
@@ -114,10 +119,12 @@ def main():
     blocks = {
         # The headline demo: what you actually see in a colour terminal.
         "demoAnsi": to_html(render(["--color", "always", "--width", "62"])),
-        # The degradation ladder, same document, three rungs down.
-        "rungUnicode": to_html(render(["--color", "always", "--width", "44"])),
-        "rungAscii": to_html(render(["--color", "always", "--ascii", "--width", "44"])),
-        "rungPlain": to_html(render(["--color", "never", "--ascii", "--width", "44"])),
+        # The ladder: the same table, each rung giving up something the one above
+        # it could afford. The last one gives up the frame entirely rather than
+        # truncate a cell, because that output is for `cut` and `awk`.
+        "rungBox": to_html(render(["--color", "always", "--width", "32"], TABLE)),
+        "rungAscii": to_html(render(["--color", "always", "--ascii", "--width", "32"], TABLE)),
+        "rungTsv": to_html(render(["--color", "always", "--width", "18"], TABLE)),
     }
 
     body = [

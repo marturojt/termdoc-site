@@ -77,9 +77,11 @@ code {
   color: var(--muted);
   margin-bottom: 0.5rem;
 }
+/* --dim is for things that must recede: separators, prompts. This line is the
+ * project's sharpest claim, so it gets readable contrast and recedes by size. */
 .hero-sub {
-  font-size: 0.9rem;
-  color: var(--dim);
+  font-size: 0.85rem;
+  color: var(--muted);
   margin-bottom: 2rem;
 }
 
@@ -181,7 +183,9 @@ section {
   margin-bottom: 0.5rem;
 }
 .rungs .term { padding: 0.9rem 1rem; }
-.rungs .term pre { font-size: 0.6rem; line-height: 1.5; }
+/* The ladder only works if the glyphs are legible. A table is narrow enough to
+ * stay near the body size even in a third of the column. */
+.rungs .term pre { font-size: 0.78rem; line-height: 1.5; }
 
 /* ── Features ─────────────────────────────────────── */
 .features {

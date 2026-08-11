@@ -1,4 +1,4 @@
-import { demoAnsi, rungUnicode, rungAscii, rungPlain } from './demo'
+import { demoAnsi, rungBox, rungAscii, rungTsv } from './demo'
 
 const GITHUB = 'https://github.com/marturojt/termdoc'
 const CRATES = 'https://crates.io/crates/termdoc'
@@ -56,9 +56,9 @@ export default function Home() {
         <h2 className="section-title">graceful degradation</h2>
         <div className="rungs">
           <div>
-            <div className="rung-label">unicode + colour</div>
+            <div className="rung-label">box-drawing</div>
             <div className="term">
-              <pre dangerouslySetInnerHTML={{ __html: rungUnicode }} />
+              <pre dangerouslySetInnerHTML={{ __html: rungBox }} />
             </div>
           </div>
           <div>
@@ -68,17 +68,24 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <div className="rung-label">no colour, no unicode</div>
+            <div className="rung-label">too narrow → tsv</div>
             <div className="term">
-              <pre dangerouslySetInnerHTML={{ __html: rungPlain }} />
+              <pre dangerouslySetInnerHTML={{ __html: rungTsv }} />
             </div>
           </div>
         </div>
         <p className="section-note">
-          The same document, three rungs down. Degradation is an input to the layout, not a
-          chain of special cases bolted onto it: the terminal&rsquo;s real capabilities are
-          detected once and every ladder — colour, box-drawing, hyperlinks, headings — reads
-          from that. With colour off, not one escape byte is emitted.
+          One table, three rungs down. Each gives up something the rung above it could
+          afford, and the last one gives up the frame entirely: below a certain width a
+          bordered table can only fit by truncating cells, so it stops being a table and
+          becomes tab-separated values — output for <code>cut</code> and <code>awk</code>{' '}
+          rather than for reading. Losing the borders is recoverable; losing the data is not.
+        </p>
+        <p className="section-note">
+          Degradation is an input to the layout, not a chain of special cases bolted onto it.
+          The terminal&rsquo;s real capabilities are detected once, and every ladder — colour
+          truecolor → 256 → 16 → none, hyperlinks, headings — reads from that same value.
+          With colour off, not one escape byte is emitted.
         </p>
       </section>
 
