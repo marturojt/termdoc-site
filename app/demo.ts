@@ -8,8 +8,8 @@ a <span class="u ansi-bright-blue">link</span><span class="dim ansi-blue">[1]</s
 
 <span class="b ansi-bright-cyan">Formats</span>
 
-<span class="ansi-bright-cyan">• </span>Markdown, plain text and logs
-<span class="ansi-bright-cyan">• </span>Detection for JSON, YAML, TOML, XML, CSV
+<span class="ansi-bright-cyan">• </span>Markdown, plain text, logs, JSON and YAML
+<span class="ansi-bright-cyan">• </span>Detection for TOML, XML, CSV
   <span class="ansi-bright-cyan">◦ </span>and the Office/ZIP family
 <span class="ansi-bright-cyan">• </span>PDF and EPUB are on the roadmap
 

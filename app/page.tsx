@@ -35,8 +35,8 @@ export default function Home() {
         <h1 className="hero-title">termdoc</h1>
         <p className="hero-tagline">View documents without leaving the terminal</p>
         <p className="hero-sub">
-          A fast, terminal-native document viewer. <strong>Markdown, plain text and logs
-          render today</strong> — more formats land milestone by milestone.
+          A fast, terminal-native document viewer. <strong>Markdown, plain text, logs, JSON
+          and YAML render today</strong> — more formats land milestone by milestone.
         </p>
         <p className="hero-note">
           It is not an editor. It is not a converter. It is not an IDE.
@@ -71,7 +71,8 @@ export default function Home() {
             <tr><td>Markdown</td><td className="yes">●</td><td className="yes">●</td></tr>
             <tr><td>Plain text</td><td className="yes">●</td><td className="yes">●</td></tr>
             <tr><td>Logs</td><td className="yes">●</td><td className="yes">●</td></tr>
-            <tr><td>JSON · YAML · TOML</td><td className="yes">●</td><td className="wip">◐</td></tr>
+            <tr><td>JSON · YAML</td><td className="yes">●</td><td className="yes">●</td></tr>
+            <tr><td>TOML</td><td className="yes">●</td><td className="wip">◐</td></tr>
             <tr><td>XML · HTML · CSV</td><td className="yes">●</td><td className="wip">◐</td></tr>
             <tr><td>Source code</td><td className="yes">●</td><td className="wip">◐</td></tr>
             <tr><td>PDF · EPUB</td><td className="yes">●</td><td className="no">✕</td></tr>
@@ -197,8 +198,8 @@ export default function Home() {
         </div>
 
         <p className="status-text">
-          Readers exist for Markdown, plain text and logs. Detection recognises considerably
-          more — JSON, YAML, TOML, XML, HTML, CSV, source code, PDF and the Office/ZIP family
+          Readers exist for Markdown, plain text, logs, JSON and YAML. Detection recognises
+          considerably more — TOML, XML, HTML, CSV, source code, PDF and the Office/ZIP family
           — and until each dedicated reader lands, a recognised-but-unreadable text format is
           shown as plain text with a warning on stderr. <code>--strict</code> turns that
           warning into an error.
