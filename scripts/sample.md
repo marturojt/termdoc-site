@@ -5,15 +5,15 @@ and a [link](https://termdoc.app).
 
 ## Formats
 
-- Markdown, plain text, logs, JSON, YAML, TOML and XML
-- Detection for CSV
+- Markdown, plain text, logs, JSON, YAML, TOML, XML and CSV
+- Detection for HTML and source code
   - and the Office/ZIP family
 - PDF and EPUB are on the roadmap
 
 | Format | Status | Milestone |
 | ------ | :----: | --------- |
 | Markdown | ready | M0 |
-| CSV | detected | M1 |
+| HTML | detected | M3 |
 | PDF | pending | M3 |
 
 ```rust

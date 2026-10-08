@@ -8,8 +8,8 @@ a <span class="u ansi-bright-blue">link</span><span class="dim ansi-blue">[1]</s
 
 <span class="b ansi-bright-cyan">Formats</span>
 
-<span class="ansi-bright-cyan">• </span>Markdown, plain text, logs, JSON, YAML, TOML and XML
-<span class="ansi-bright-cyan">• </span>Detection for CSV
+<span class="ansi-bright-cyan">• </span>Markdown, plain text, logs, JSON, YAML, TOML, XML and CSV
+<span class="ansi-bright-cyan">• </span>Detection for HTML and source code
   <span class="ansi-bright-cyan">◦ </span>and the Office/ZIP family
 <span class="ansi-bright-cyan">• </span>PDF and EPUB are on the roadmap
 
@@ -17,7 +17,7 @@ a <span class="u ansi-bright-blue">link</span><span class="dim ansi-blue">[1]</s
 <span class="ansi-bright-black">│</span> <span class="b">Format</span>   <span class="ansi-bright-black">│</span>  <span class="b">Status</span>  <span class="ansi-bright-black">│</span> <span class="b">Milestone</span> <span class="ansi-bright-black">│</span>
 <span class="ansi-bright-black">├──────────┼──────────┼───────────┤</span>
 <span class="ansi-bright-black">│</span> Markdown <span class="ansi-bright-black">│</span>  ready   <span class="ansi-bright-black">│</span> M0        <span class="ansi-bright-black">│</span>
-<span class="ansi-bright-black">│</span> CSV      <span class="ansi-bright-black">│</span> detected <span class="ansi-bright-black">│</span> M1        <span class="ansi-bright-black">│</span>
+<span class="ansi-bright-black">│</span> HTML     <span class="ansi-bright-black">│</span> detected <span class="ansi-bright-black">│</span> M3        <span class="ansi-bright-black">│</span>
 <span class="ansi-bright-black">│</span> PDF      <span class="ansi-bright-black">│</span> pending  <span class="ansi-bright-black">│</span> M3        <span class="ansi-bright-black">│</span>
 <span class="ansi-bright-black">└──────────┴──────────┴───────────┘</span>
 
@@ -33,7 +33,7 @@ export const rungBox = `<span class="ansi-bright-black">┌───────
 <span class="ansi-bright-black">│</span> <span class="b">Format</span>   <span class="ansi-bright-black">│</span>  <span class="b">Status</span>  <span class="ansi-bright-black">│</span> <span class="b">M</span>   <span class="ansi-bright-black">│</span>
 <span class="ansi-bright-black">├──────────┼──────────┼─────┤</span>
 <span class="ansi-bright-black">│</span> Markdown <span class="ansi-bright-black">│</span>  ready   <span class="ansi-bright-black">│</span> M0  <span class="ansi-bright-black">│</span>
-<span class="ansi-bright-black">│</span> CSV      <span class="ansi-bright-black">│</span> detected <span class="ansi-bright-black">│</span> M1  <span class="ansi-bright-black">│</span>
+<span class="ansi-bright-black">│</span> HTML     <span class="ansi-bright-black">│</span> detected <span class="ansi-bright-black">│</span> M3  <span class="ansi-bright-black">│</span>
 <span class="ansi-bright-black">│</span> PDF      <span class="ansi-bright-black">│</span> pending  <span class="ansi-bright-black">│</span> M3  <span class="ansi-bright-black">│</span>
 <span class="ansi-bright-black">└──────────┴──────────┴─────┘</span>`
 
@@ -41,11 +41,11 @@ export const rungAscii = `<span class="ansi-bright-black">+----------+----------
 <span class="ansi-bright-black">|</span> <span class="b">Format</span>   <span class="ansi-bright-black">|</span>  <span class="b">Status</span>  <span class="ansi-bright-black">|</span> <span class="b">M</span>   <span class="ansi-bright-black">|</span>
 <span class="ansi-bright-black">+----------+----------+-----+</span>
 <span class="ansi-bright-black">|</span> Markdown <span class="ansi-bright-black">|</span>  ready   <span class="ansi-bright-black">|</span> M0  <span class="ansi-bright-black">|</span>
-<span class="ansi-bright-black">|</span> CSV      <span class="ansi-bright-black">|</span> detected <span class="ansi-bright-black">|</span> M1  <span class="ansi-bright-black">|</span>
+<span class="ansi-bright-black">|</span> HTML     <span class="ansi-bright-black">|</span> detected <span class="ansi-bright-black">|</span> M3  <span class="ansi-bright-black">|</span>
 <span class="ansi-bright-black">|</span> PDF      <span class="ansi-bright-black">|</span> pending  <span class="ansi-bright-black">|</span> M3  <span class="ansi-bright-black">|</span>
 <span class="ansi-bright-black">+----------+----------+-----+</span>`
 
 export const rungTsv = `Format	Status	M
 Markdown	ready	M0
-CSV	detected	M1
+HTML	detected	M3
 PDF	pending	M3`

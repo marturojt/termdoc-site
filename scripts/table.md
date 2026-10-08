@@ -1,5 +1,5 @@
 | Format | Status | M |
 | ------ | :----: | - |
 | Markdown | ready | M0 |
-| CSV | detected | M1 |
+| HTML | detected | M3 |
 | PDF | pending | M3 |
