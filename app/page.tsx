@@ -5,7 +5,10 @@ const CRATES = 'https://crates.io/crates/termdoc'
 
 const RELEASES = 'https://github.com/marturojt/termdoc/releases/latest'
 
-const installHtml = `<span class="comment"># from crates.io</span>
+const installHtml = `<span class="comment"># Homebrew — macOS and Linux, the prebuilt binary</span>
+<span class="prompt">$</span> brew install marturojt/tap/termdoc
+
+<span class="comment"># from crates.io</span>
 <span class="prompt">$</span> cargo install <a href="${CRATES}" class="code-link">termdoc</a>
 
 <span class="comment"># or a prebuilt binary — macOS · Linux · Windows</span>
@@ -15,8 +18,9 @@ const installHtml = `<span class="comment"># from crates.io</span>
 <span class="prompt">$</span> termdoc README.md
 <span class="prompt">$</span> termdoc --explain odd.dat
 <span class="prompt">$</span> cat README.md | termdoc
+<span class="prompt">$</span> kubectl logs -f pod | termdoc
 
-<span class="comment"># Homebrew, AUR, Scoop — planned</span>`
+<span class="comment"># AUR and Scoop — planned</span>`
 
 function Bar({ filled }: { filled: number }) {
   const total = 10
@@ -46,7 +50,7 @@ export default function Home() {
           <a className="btn" href={CRATES}>crates.io</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">v0.1.0 · M0 and M1 complete</span>
+        <span className="status-chip">v0.2.0 · M0 and M1 complete</span>
       </header>
 
       <section id="output">
@@ -155,8 +159,10 @@ export default function Home() {
           Prebuilt binaries for macOS (universal), Linux (x86_64 and aarch64) and Windows are
           attached to every release, with <code>SHA256SUMS.txt</code> covering each archive —
           and CI unpacks and runs every one of them before the release is drafted. Building
-          from source needs a Rust toolchain (<a href="https://rustup.rs">rustup.rs</a>). A
-          Homebrew formula is still on the backlog.
+          from source needs a Rust toolchain (<a href="https://rustup.rs">rustup.rs</a>). The
+          Homebrew formula installs that same binary, and the tap&rsquo;s own CI installs and audits
+          it on macOS and Linux whenever it changes. What changed in each release is in
+          the <a href="https://github.com/marturojt/termdoc/blob/main/CHANGELOG.md">changelog</a>.
         </p>
       </section>
 
