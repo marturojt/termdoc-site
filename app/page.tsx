@@ -36,7 +36,7 @@ export default function Home() {
         <p className="hero-tagline">View documents without leaving the terminal</p>
         <p className="hero-sub">
           A fast, terminal-native document viewer. <strong>Markdown, plain text, logs, JSON,
-          YAML, TOML, XML and CSV render today</strong> — more formats land milestone by milestone.
+          YAML, TOML, XML, CSV and source code render today</strong> — more formats land milestone by milestone.
         </p>
         <p className="hero-note">
           It is not an editor. It is not a converter. It is not an IDE.
@@ -72,8 +72,8 @@ export default function Home() {
             <tr><td>Plain text</td><td className="yes">●</td><td className="yes">●</td></tr>
             <tr><td>Logs</td><td className="yes">●</td><td className="yes">●</td></tr>
             <tr><td>JSON · YAML · TOML · XML · CSV</td><td className="yes">●</td><td className="yes">●</td></tr>
+            <tr><td>Source code</td><td className="yes">●</td><td className="yes">●</td></tr>
             <tr><td>HTML</td><td className="yes">●</td><td className="wip">◐</td></tr>
-            <tr><td>Source code</td><td className="yes">●</td><td className="wip">◐</td></tr>
             <tr><td>PDF · EPUB</td><td className="yes">●</td><td className="no">✕</td></tr>
             <tr><td>DOCX · ODT · XLSX · PPTX</td><td className="yes">●</td><td className="no">✕</td></tr>
           </tbody>
@@ -174,7 +174,7 @@ export default function Home() {
         <h2 className="section-title">status</h2>
         <ul className="milestones">
           <li><span className="ms-id">M0</span><Bar filled={10} /><span className="ms-desc">Markdown, plain text, logs — complete</span></li>
-          <li><span className="ms-id">M1</span><Bar filled={3} /><span className="ms-desc">data and code: detection and encoding landed, readers next</span></li>
+          <li><span className="ms-id">M1</span><Bar filled={8} /><span className="ms-desc">data and code: JSON, YAML, TOML, XML, CSV and highlighted source landed, a log reader next</span></li>
           <li><span className="ms-id">M2</span><Bar filled={0} /><span className="ms-desc">the interactive pager</span></li>
           <li><span className="ms-id">M3</span><Bar filled={0} /><span className="ms-desc">HTML, DOCX, ODT, RTF, EPUB, PDF, images</span></li>
           <li><span className="ms-id">M4</span><Bar filled={0} /><span className="ms-desc">plugin host and SDK</span></li>
@@ -191,14 +191,14 @@ export default function Home() {
             <span className="metric-label">memory · 488 MB input</span>
           </div>
           <div>
-            <span className="metric-value">258</span>
+            <span className="metric-value">407</span>
             <span className="metric-label">tests, 3 platforms</span>
           </div>
         </div>
 
         <p className="status-text">
-          Readers exist for Markdown, plain text, logs, JSON, YAML, TOML, XML and CSV. Detection
-          recognises considerably more — HTML, source code, PDF and the Office/ZIP family
+          Readers exist for Markdown, plain text, logs, JSON, YAML, TOML, XML, CSV and source code.
+          Detection recognises considerably more — HTML, PDF and the Office/ZIP family
           — and until each dedicated reader lands, a recognised-but-unreadable text format is
           shown as plain text with a warning on stderr. <code>--strict</code> turns that
           warning into an error.

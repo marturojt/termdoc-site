@@ -5,8 +5,8 @@ and a [link](https://termdoc.app).
 
 ## Formats
 
-- Markdown, plain text, logs, JSON, YAML, TOML, XML and CSV
-- Detection for HTML and source code
+- Markdown, plain text, logs, data files and source code
+- Detection for HTML, PDF and the Office family
   - and the Office/ZIP family
 - PDF and EPUB are on the roadmap
 

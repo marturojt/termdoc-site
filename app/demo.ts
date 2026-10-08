@@ -8,8 +8,8 @@ a <span class="u ansi-bright-blue">link</span><span class="dim ansi-blue">[1]</s
 
 <span class="b ansi-bright-cyan">Formats</span>
 
-<span class="ansi-bright-cyan">• </span>Markdown, plain text, logs, JSON, YAML, TOML, XML and CSV
-<span class="ansi-bright-cyan">• </span>Detection for HTML and source code
+<span class="ansi-bright-cyan">• </span>Markdown, plain text, logs, data files and source code
+<span class="ansi-bright-cyan">• </span>Detection for HTML, PDF and the Office family
   <span class="ansi-bright-cyan">◦ </span>and the Office/ZIP family
 <span class="ansi-bright-cyan">• </span>PDF and EPUB are on the roadmap
 
@@ -21,9 +21,9 @@ a <span class="u ansi-bright-blue">link</span><span class="dim ansi-blue">[1]</s
 <span class="ansi-bright-black">│</span> PDF      <span class="ansi-bright-black">│</span> pending  <span class="ansi-bright-black">│</span> M3        <span class="ansi-bright-black">│</span>
 <span class="ansi-bright-black">└──────────┴──────────┴───────────┘</span>
 
-<span class="ansi-bright-yellow">fn main() {</span>
-<span class="ansi-bright-yellow">    println!(&quot;hello&quot;);</span>
-<span class="ansi-bright-yellow">}</span>
+<span class="ansi-magenta">fn</span> <span class="ansi-bright-blue">main</span><span class="ansi-bright-black">()</span> <span class="ansi-bright-black">{</span>
+    println!<span class="ansi-bright-black">(</span><span class="ansi-green">&quot;hello&quot;</span><span class="ansi-bright-black">);</span>
+<span class="ansi-bright-black">}</span>
 
 <span class="ansi-bright-black">│</span> <span class="dim i">Streaming by default: a 488 MB log costs 1.4 MB of memory.</span>
 
