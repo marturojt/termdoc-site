@@ -46,7 +46,7 @@ export default function Home() {
           <a className="btn" href={CRATES}>crates.io</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">v0.1.0 · M0 complete · M1 in progress</span>
+        <span className="status-chip">v0.1.0 · M0 and M1 complete</span>
       </header>
 
       <section id="output">
@@ -135,6 +135,7 @@ export default function Home() {
         <h2 className="section-title">features</h2>
         <ul className="features">
           <li><strong>Streaming by design</strong> — the document is an event stream borrowing from an <code>mmap</code>, never a materialised tree. A 488&nbsp;MB log costs 1.4&nbsp;MB of memory</li>
+          <li><strong>Reads a pipe as it arrives</strong> — <code>kubectl logs -f | termdoc</code> shows each line when it is written, flushing the moment it would otherwise wait. 122&nbsp;MB piped in costs 2.8&nbsp;MB, and <code>yes | termdoc | head</code> answers at once</li>
           <li><strong>Behaves like a system utility</strong> — <code>termdoc huge.log | head -5</code> dies with signal 13 like <code>cat</code> does, instead of panicking. In a pipe, stdout carries only the document</li>
           <li><strong>Unicode-aware layout</strong> — grapheme clusters, CJK widths, combining marks and ZWJ sequences. No line exceeds the width in display cells, and none ends in trailing spaces</li>
           <li><strong>Layered detection</strong> — magic bytes, extension, structure and delimiter sniffing each propose a format with a confidence and a reason. <code>termdoc --explain</code> prints every opinion, including the losing ones</li>
@@ -174,7 +175,7 @@ export default function Home() {
         <h2 className="section-title">status</h2>
         <ul className="milestones">
           <li><span className="ms-id">M0</span><Bar filled={10} /><span className="ms-desc">Markdown, plain text, logs — complete</span></li>
-          <li><span className="ms-id">M1</span><Bar filled={8} /><span className="ms-desc">data and code: JSON, YAML, TOML, XML, CSV and highlighted source landed, a log reader next</span></li>
+          <li><span className="ms-id">M1</span><Bar filled={10} /><span className="ms-desc">data, code and logs: JSON, YAML, TOML, XML, CSV, highlighted source, levelled logs, live stdin — complete</span></li>
           <li><span className="ms-id">M2</span><Bar filled={0} /><span className="ms-desc">the interactive pager</span></li>
           <li><span className="ms-id">M3</span><Bar filled={0} /><span className="ms-desc">HTML, DOCX, ODT, RTF, EPUB, PDF, images</span></li>
           <li><span className="ms-id">M4</span><Bar filled={0} /><span className="ms-desc">plugin host and SDK</span></li>
@@ -191,7 +192,7 @@ export default function Home() {
             <span className="metric-label">memory · 488 MB input</span>
           </div>
           <div>
-            <span className="metric-value">407</span>
+            <span className="metric-value">449</span>
             <span className="metric-label">tests, 3 platforms</span>
           </div>
         </div>
